@@ -1,0 +1,11 @@
+.settings
+.classpath
+.project
+.idea
+.svn
+*.iml
+*.ipr
+*.iws
+target
+local-build.properties
+out

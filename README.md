@@ -13,7 +13,7 @@ Add to your `<repositories>` section:
 
       <repository>
           <id>dunnololda's maven repo</id>
-          <url>https://raw.github.com/dunnololda/mvn-repo/</url>
+          <url>https://raw.github.com/dunnololda/mvn-repo/master</url>
       </repository>
       
 Add to your `<dependencies>` section:

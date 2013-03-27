@@ -3,9 +3,7 @@ package com.github.dunnololda
 import scala.math._
 import scala.util.parsing.combinator._
 import scala.util.Random
-import collection.mutable.HashMap
 import collection.mutable
-import com.weiglewilczek.slf4s.Logger
 
 /**
  * Simple parser for arithmetic expressions based on Scala's Combinator Parsers framework
@@ -32,7 +30,7 @@ class FormulaParser(val constants:mutable.HashMap[String,Double] = mutable.HashM
   require(constants.keySet.intersect(userFcts.keySet).isEmpty)
   constants ++= Map("E" -> E, "PI" -> Pi, "Pi" -> Pi)
 
-  private val log = Logger(this.getClass.getName)
+  private val log = MySimpleLogger(this.getClass.getName)
 
   private val unaryOps: Map[String,Double => Double] = Map(
     "" -> {elem:Double => elem},
@@ -51,7 +49,7 @@ class FormulaParser(val constants:mutable.HashMap[String,Double] = mutable.HashM
    "max" -> (max(_,_)), "min" -> (min(_,_))
   )
   private def fold(d: Double, l: List[~[String,Double]]) = l.foldLeft(d){ case (d1,op~d2) => binaryOps1(op)(d1,d2) }
-  private implicit def hashmap2Parser[V](m: HashMap[String,V]) = m.keys.map(_ ^^ (identity)).reduceLeft(_ | _)
+  private implicit def hashmap2Parser[V](m: mutable.HashMap[String,V]) = m.keys.map(_ ^^ (identity)).reduceLeft(_ | _)
   private implicit def map2Parser[V](m: Map[String,V]) = m.keys.map(_ ^^ (identity)).reduceLeft(_ | _)
   private def expression:  Parser[Double] = sign~term~rep(("+"|"-")~term) ^^ { case s~t~l => fold(s * t,l) }
   private def sign:        Parser[Double] = opt("+" | "-") ^^ { case None => 1; case Some("+") => 1; case Some("-") => -1; case _ => 1}

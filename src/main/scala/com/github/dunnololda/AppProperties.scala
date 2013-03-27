@@ -3,10 +3,9 @@ package com.github.dunnololda
 import java.util.Properties
 import java.io._
 import collection.mutable.ArrayBuffer
-import com.weiglewilczek.slf4s.Logger
 
 trait AppProperties {
-  private val log = Logger(this.getClass.getName)
+  private val log = MySimpleLogger(this.getClass.getName)
 
   private val _properties:ArrayBuffer[String] = {
     def _pew(name:String):List[String] = {

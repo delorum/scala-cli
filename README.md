@@ -21,7 +21,7 @@ Add to your `<dependencies>` section:
       <dependency>
           <groupId>com.github.dunnololda</groupId>
           <artifactId>cli_${scala.version}</artifactId>
-          <version>1.0</version>
+          <version>1.1</version>
       </dependency>
       
 Where `scala.version` is one of `2.9.1`, `2.9.2`, `2.10.0`
@@ -37,7 +37,7 @@ Add to dependencies:
 
     libraryDependencies ++= Seq(
       // ...
-      "com.github.dunnololda" %% "cli" % "1.0",
+      "com.github.dunnololda" %% "cli" % "1.1",
       // ...
     )
 

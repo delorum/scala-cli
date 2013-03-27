@@ -42,27 +42,32 @@ trait Cli extends App with AppProperties {
     parseCommandLineArgs()
   }
 
-  private def printHelpAndExit() {
-    if (program_description != "") println(program_description)
-    println("Options:")
+  def helpMessage:String = {
+    val result = new StringBuilder()
+    if (program_description != "") result append program_description append  "\n"
+    result append "Options:" append "\n"
     cli_args_list.foreach {
       case CliArg(short, long, description, has_value, required) =>
-        val short_only = "-" + short
-        val except_descr = short_only + (List().padTo(10 - short_only.length, " ").mkString) + "--" + long +
-          (if (has_value) " arg"        else "") +
-          (if (required)  " (required)" else "")
-        println(except_descr + (List().padTo(40 - except_descr.length, " ").mkString) + description)
+        val short_only   = (new StringBuilder("-") append short).toString()
+        val except_descr = (new StringBuilder(short_only) append " "*(10 - short_only.length) append "--" append long append
+          (if (has_value) " arg" else "") append (if (required)  " (required)" else "")).toString()
+        result append except_descr append " "*(40 - except_descr.length) append description append "\n"
     }
 
     {
-      val short = "help"
-      val long = "help"
-      val description = "show this usage information"
-      val short_only = "-" + short
-      val except_descr = short_only + (List().padTo(10 - short_only.length, " ").mkString) + "--" + long + " "
-      println(except_descr + (List().padTo(40 - except_descr.length, " ").mkString) + description)
+      val short        = "help"
+      val long         = "help"
+      val description  = "show this usage information"
+      val short_only   = (new StringBuilder("-") append short).toString()
+      val except_descr = (new StringBuilder(short_only) append " "*(10 - short_only.length) append "--" append long append " ").toString()
+      result append except_descr append " "*(40 - except_descr.length) append description
     }
 
+    result.toString()
+  }
+
+  private def printHelpAndExit() {
+    println(helpMessage)
     System.exit(0)
   }
 

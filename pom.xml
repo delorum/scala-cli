@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.dunnololda</groupId>
   <artifactId>cli_${scala.version}</artifactId>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>${project.artifactId}</name>
   <description>Command line interface for scala programs</description>
   <inceptionYear>2010</inceptionYear>
@@ -160,7 +160,7 @@
                         <Implementation-Build>${buildNumber}</Implementation-Build>
                     </manifestEntries>
                 </archive>-->
-                <finalName>${artifactId}_${scala.version}</finalName>
+                <finalName>${project.artifactId}_${scala.version}</finalName>
             </configuration>
         </plugin>
         <plugin>
@@ -168,7 +168,7 @@
             <artifactId>maven-source-plugin</artifactId>
             <version>2.1.2</version>
             <configuration>
-                <finalName>${artifactId}_${scala.version}</finalName>
+                <finalName>${project.artifactId}_${scala.version}</finalName>
             </configuration>
             <executions>
                 <execution>
@@ -184,7 +184,7 @@
             <artifactId>site-maven-plugin</artifactId>
             <version>0.7</version>
             <configuration>
-                <message>Maven artifacts for ${artifactId} ${project.version}</message>  <!-- git commit message -->
+                <message>Maven artifacts for ${project.artifactId} ${project.version}</message>  <!-- git commit message -->
                 <noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
                 <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
                 <branch>refs/heads/master</branch>                       <!-- remote branch name -->

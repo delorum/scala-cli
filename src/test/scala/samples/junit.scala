@@ -5,6 +5,7 @@ import Assert._
 import com.github.dunnololda.Cli
 
 object TestCliApp extends Cli {
+  programDescription = "Test App with command line interface"
   commandLineArg("a1", "arg1",  "argument one",         has_value = true,  required = true)
   commandLineArg("b1", "bool1", "boolean argument one", has_value = false, required = false)
   commandLineArg("a2", "arg2",  "argument two",         has_value = true,  required = false)
@@ -22,15 +23,21 @@ object TestCliApp extends Cli {
 @Test
 class AppTest {
     @Test
-    def testOK() = {
+    def testApp() = {
       val args = "-a1 5 --arg2 Hello World! -b2".split(" ")
       TestCliApp.main(args)
+      val help_message = """Test App with command line interface
+                           |Options:
+                           |-a1       --arg1 arg (required)         argument one
+                           |-b1       --bool1                       boolean argument one
+                           |-a2       --arg2 arg                    argument two
+                           |-b2       --bool2 (required)            boolean argument two
+                           |-help     --help                        show this usage information""".stripMargin
+      assertTrue(TestCliApp.helpMessage.lines.zip(help_message.lines).forall {
+        case (s1, s2) => s1 == s2
+      })
       assertTrue(TestCliApp.receivedCliArgs == "5:false:Hello World!:true")
     }
-
-//    @Test
-//    def testKO() = assertTrue(false)
-
 }
 
 

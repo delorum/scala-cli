@@ -1,4 +1,4 @@
-package com.github.dunnololda
+package com.github.dunnololda.cli
 
 import org.slf4j.LoggerFactory
 

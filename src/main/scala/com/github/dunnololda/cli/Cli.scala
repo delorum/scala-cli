@@ -1,8 +1,8 @@
-package com.github.dunnololda
+package com.github.dunnololda.cli
 
 import collection.mutable
 
-trait Cli extends App with AppProperties {
+trait Cli extends App {
   //private val log = Logger(this.getClass.getName)
 
   case class CliArg(short: String, long: String, description: String, has_value: Boolean, required:Boolean = false)
@@ -77,7 +77,7 @@ trait Cli extends App with AppProperties {
       case p => m.get(p) match {
         case Some(CliArg(_, long, _, has_value, _)) =>
           if (!has_value) {
-            addProperty(long, true, "added command line property")
+            AppProperties.addProperty(long, true, "added command line property")
           } else {
             if (pos >= this.args.length) {
               println("value required for command line property: " + prop)
@@ -88,7 +88,7 @@ trait Cli extends App with AppProperties {
                 cli_args_short.contains(str.replaceFirst("-", "")) || cli_args_long.contains(str.replaceFirst("--", ""))
               }
               val value = this.args.drop(pos+1).takeWhile(a => !isNextProp(a)).mkString(" ")
-              addProperty(long, value, "added command line property")
+              AppProperties.addProperty(long, value, "added command line property")
             }
           }
         case None =>

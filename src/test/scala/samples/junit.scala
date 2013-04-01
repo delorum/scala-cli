@@ -2,7 +2,7 @@ package samples
 
 import org.junit._
 import Assert._
-import com.github.dunnololda.Cli
+import com.github.dunnololda.cli.{AppProperties, Cli}
 
 object TestCliApp extends Cli {
   programDescription = "Test App with command line interface"
@@ -12,10 +12,10 @@ object TestCliApp extends Cli {
   commandLineArg("b2", "bool2", "boolean argument two", has_value = false, required = true)
   parseCommandLineArgs()
 
-  private def arg1  = intProperty("arg1")
-  private def bool1 = property("bool1", false)
-  private def arg2 =  property("arg2", "default arg2 property")
-  private def bool2 = booleanProperty("bool2")
+  private def arg1  = AppProperties.intProperty("arg1")
+  private def bool1 = AppProperties.property("bool1", false)
+  private def arg2 =  AppProperties.property("arg2", "default arg2 property")
+  private def bool2 = AppProperties.booleanProperty("bool2")
 
   def receivedCliArgs = arg1+":"+bool1+":"+arg2+":"+bool2
 }

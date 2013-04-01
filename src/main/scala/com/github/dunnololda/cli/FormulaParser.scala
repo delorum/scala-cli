@@ -1,4 +1,4 @@
-package com.github.dunnololda
+package com.github.dunnololda.cli
 
 import scala.math._
 import scala.util.parsing.combinator._

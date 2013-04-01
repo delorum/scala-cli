@@ -1,10 +1,10 @@
-package com.github.dunnololda
+package com.github.dunnololda.cli
 
 import java.util.Properties
 import java.io._
 import collection.mutable.ArrayBuffer
 
-trait AppProperties {
+object AppProperties {
   private val log = MySimpleLogger(this.getClass.getName)
 
   private val _properties:ArrayBuffer[String] = {

@@ -21,7 +21,7 @@ Add to your `<dependencies>` section:
       <dependency>
           <groupId>com.github.dunnololda</groupId>
           <artifactId>cli_${scala.version}</artifactId>
-          <version>1.1</version>
+          <version>1.2</version>
       </dependency>
       
 Where `scala.version` is one of `2.9.1`, `2.9.2`, `2.10.0`
@@ -31,7 +31,7 @@ SBT
 
 Add to resolvers:
 
-    resolvers += "dunnololda's repo" at "https://raw.github.com/dunnololda/mvn-repo/"
+    resolvers += "dunnololda's repo" at "https://raw.github.com/dunnololda/mvn-repo/master"
     
 Add to dependencies:
 
@@ -44,9 +44,9 @@ Add to dependencies:
 Code
 ----
 
-In your main object extend `com.github.dunnololda.Cli` instead of `App`:
+In your main object extend `com.github.dunnololda.cli.Cli` instead of `App`:
 
-    import com.github.dunnololda.Cli
+    import com.github.dunnololda.cli.Imports._
     
     object MyApp extends Cli {
       

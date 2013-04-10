@@ -76,13 +76,16 @@ Access cli arguments in your app this way:
     val bool2 = booleanProperty("bool2")
     
 See AppProperties.scala source-code for all supported variants:
+
 https://github.com/dunnololda/scala-cli/blob/master/src/main/scala/com/github/dunnololda/cli/AppProperties.scala
     
 Now you can pass arguments when invoke your program with short or long names, for example:
 
     $ java -jar myapp.jar -a1 5 --arg2 Hello World! -b2
     
-Also additional argument `-help`/`--help` is provided: it print to console usage information with descriptions for all arguments.
+Also additional argument `-help`/`--help` is provided: it print to console usage information with descriptions for all 
+arguments.
+
     $ java -jar myapp.jar --help
     Test App with command line interface
     Options:
@@ -93,7 +96,9 @@ Also additional argument `-help`/`--help` is provided: it print to console usage
     -help     --help                        show this usage information
     
 "Test App with command line interface" is an optional program description. You can add it this way:
+
     programDescription = "Test App with command line interface"
+
 If no `programDescription` provided, this string will be omitted in `--help` output.
 
 Alternatively you can provide all options in text file as `<key>`=`<value>` rows:
@@ -109,13 +114,17 @@ Invoke your program this way in order to use options from file:
 
     $ java -jar myapp.jar -Dapp.properties=myfile.txt
     
-For boolean values these keywords are supported: true/false, yes/no, on/off, 1/0.
+For boolean values these keywords are supported: `true/false`, `yes/no`, `on/off`, `1/0`.
 For number values you can write simple arithmetic expressions:
 
     arg1 = 5*2
     
-Also scala-cli allows you to access `version` and `artifactId` from pom.xml programmatically. 
-To do this, add to resources the file `maven.properties` with these content:
+To read more about supported math see the formula parser source code:
+
+https://github.com/dunnololda/scala-cli/blob/master/src/main/scala/com/github/dunnololda/cli/FormulaParser.scala
+    
+Also scala-cli allows you to access `version` and `artifactId` from `pom.xml` programmatically. 
+To do this, add to resources file `maven.properties` with these content:
 
     app.version = ${project.version}
     app.name = ${project.artifactId}

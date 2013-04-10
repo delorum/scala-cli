@@ -24,7 +24,7 @@ Add to your `<dependencies>` section:
           <version>1.2</version>
       </dependency>
       
-Where `scala.version` is one of `2.9.1`, `2.9.2`, `2.10.0`
+Where `scala.version` is one of `2.9.1`, `2.9.2`, `2.10.1`
 
 SBT
 ---

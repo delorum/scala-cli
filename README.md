@@ -24,7 +24,7 @@ Add to your `<dependencies>` section:
           <version>1.2</version>
       </dependency>
       
-Where `scala.version` is one of `2.9.1`, `2.9.2`, `2.10.1`
+Where `scala.version` is `2.9.1`, `2.9.2`, or `2.10.1`
 
 SBT
 ---
@@ -44,7 +44,7 @@ Add to dependencies:
 Code
 ----
 
-In your main object extend `com.github.dunnololda.cli.Cli` instead of `App`:
+In your main object extends `com.github.dunnololda.cli.Cli` instead of `App`:
 
     import com.github.dunnololda.cli.Imports._
     
@@ -57,7 +57,7 @@ Then add command line descriptions:
     commandLineArg("a2", "arg2",  "argument two",         has_value = true,  required = false)
     commandLineArg("b2", "bool2", "boolean argument two", has_value = false, required = true)
 
-And then parse the arguments your program received:
+And then parse the arguments your program has received:
 
     parseCommandLineArgs()
     
@@ -79,12 +79,12 @@ See AppProperties.scala source-code for all supported variants:
 
 https://github.com/dunnololda/scala-cli/blob/master/src/main/scala/com/github/dunnololda/cli/AppProperties.scala
     
-Now you can pass arguments when invoke your program with short or long names, for example:
+Now you can pass arguments when invoke your programm with short or long names, for example:
 
     $ java -jar myapp.jar -a1 5 --arg2 Hello World! -b2
     
-Also additional argument `-help`/`--help` is provided: it print to console usage information with descriptions for all 
-arguments.
+Also additional argument `-help`/`--help` is provided: it prints to console usage information with descriptions for every 
+argument.
 
     $ java -jar myapp.jar --help
     Test App with command line interface
@@ -101,7 +101,7 @@ arguments.
 
 If no `programDescription` provided, this string will be omitted in `--help` output.
 
-Alternatively you can provide all options in text file as `<key>`=`<value>` rows:
+Alternatively you can provide all options in the text file as `<key>`=`<value>` rows:
 
     myfile.txt
     
@@ -124,7 +124,7 @@ To read more about supported math see the formula parser source code:
 https://github.com/dunnololda/scala-cli/blob/master/src/main/scala/com/github/dunnololda/cli/FormulaParser.scala
     
 Also scala-cli allows you to access `version` and `artifactId` from `pom.xml` programmatically. 
-To do this, add to resources file `maven.properties` with these content:
+To do this, add to resources file `maven.properties` with following content:
 
     app.version = ${project.version}
     app.name = ${project.artifactId}

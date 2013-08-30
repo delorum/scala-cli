@@ -6,10 +6,10 @@ object Imports {
   val MySimpleLogger = _root_.com.github.dunnololda.cli.MySimpleLogger
 
   def properties:Seq[String]                                 = AppProperties.properties
-  def reloadProperties()                                     = AppProperties.reloadProperties()
-  def addProperty(key:String, value:Any, description:String) = AppProperties.addProperty(key, value, description)
+  def reloadProperties()                                     {AppProperties.reloadProperties()}
+  def addProperty(key:String, value:Any, description:String) {AppProperties.addProperty(key, value, description)}
   def containsProperty(key:String):Boolean                   = AppProperties.containsProperty(key)
-  def addPropertyFile(filename:String, description:String)   = AppProperties.addPropertyFile(filename, description)
+  def addPropertyFile(filename:String, description:String)   {AppProperties.addPropertyFile(filename, description)}
 
   def property[A : Manifest](key:String, default: => A):A                                      = AppProperties.property(key, default)
   def property[A : Manifest](key:String, default: => A, condition:(A => (Boolean,  String))):A = AppProperties.property(key, default, condition)

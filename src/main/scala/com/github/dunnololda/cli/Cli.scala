@@ -85,7 +85,8 @@ trait Cli extends App {
             }
             else {
               def isNextProp(str:String):Boolean = {
-                cli_args_short.contains(str.replaceFirst("-", "")) || cli_args_long.contains(str.replaceFirst("--", ""))
+                (str.startsWith("--") && cli_args_long.contains(str.replaceFirst("--", ""))) ||
+                (str.startsWith("-") && cli_args_short.contains(str.replaceFirst("-", "")))
               }
               val value = this.args.drop(pos+1).takeWhile(a => !isNextProp(a)).mkString(" ")
               AppProperties.addProperty(long, value, "added command line property")

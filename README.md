@@ -3,6 +3,11 @@ scala-cli
 
 Command Line Interface for scala programs
 
+Latest Stable Version
+=====================
+
+1.5
+
 Usage
 =====
 

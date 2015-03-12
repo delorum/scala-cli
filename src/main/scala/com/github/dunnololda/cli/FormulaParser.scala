@@ -1,5 +1,7 @@
 package com.github.dunnololda.cli
 
+import com.github.dunnololda.mysimplelogger.MySimpleLogger
+
 import scala.math._
 import scala.util.parsing.combinator._
 import scala.util.Random

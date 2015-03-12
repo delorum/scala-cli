@@ -3,7 +3,7 @@ package com.github.dunnololda.cli
 object Imports {
   type Cli           = _root_.com.github.dunnololda.cli.Cli
   val AppProperties  = _root_.com.github.dunnololda.cli.AppProperties
-  val MySimpleLogger = _root_.com.github.dunnololda.cli.MySimpleLogger
+  val MySimpleLogger = _root_.com.github.dunnololda.mysimplelogger.MySimpleLogger
 
   def properties:Seq[String]                                 = AppProperties.properties
   def reloadProperties()                                     {AppProperties.reloadProperties()}

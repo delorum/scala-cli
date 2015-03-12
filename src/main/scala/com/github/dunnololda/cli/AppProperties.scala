@@ -2,6 +2,8 @@ package com.github.dunnololda.cli
 
 import java.util.Properties
 import java.io._
+import com.github.dunnololda.mysimplelogger.MySimpleLogger
+
 import collection.mutable.ArrayBuffer
 
 object AppProperties {

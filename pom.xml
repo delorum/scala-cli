@@ -20,7 +20,7 @@
     <maven.compiler.target>1.6</maven.compiler.target>
     <encoding>UTF-8</encoding>
     <scala.version>2.10.5</scala.version>
-    <publish.scala.version>2.10.5</publish.scala.version>
+    <publish.scala.version>2.10</publish.scala.version>
 
     <!-- github server corresponds to entry in ~/.m2/settings.xml -->
     <github.global.server>github</github.global.server>
@@ -101,7 +101,7 @@
     </dependency>
       <dependency>
           <groupId>com.github.dunnololda</groupId>
-          <artifactId>mysimplelogger_2.10.5</artifactId>
+          <artifactId>mysimplelogger_${publish.scala.version}</artifactId>
           <version>1.3</version>
       </dependency>
 

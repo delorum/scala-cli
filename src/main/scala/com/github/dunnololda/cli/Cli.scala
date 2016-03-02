@@ -132,6 +132,8 @@ trait Cli extends App {
   }
 
   override def main(args: Array[String]) {
+    AppProperties.init() // to make sure, property file is loaded, if any in use
+
     if (System.getProperties.containsKey("notrycatch")) {
       super.main(args)
     } else {

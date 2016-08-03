@@ -25,6 +25,10 @@ object AppProperties {
     ArrayBuffer[Properties]() ++= _properties.map(load) += load("maven.properties") += System.getProperties
   }
 
+  def init(): Unit = {
+
+  }
+
   private def load(property_filename:String):Properties = {
     /*val current = new java.io.File( "." ).getCanonicalPath()
     log.info("Current dir:"+current)*/

@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.dunnololda</groupId>
   <artifactId>cli_${publish.scala.version}</artifactId>
-  <version>1.8</version>
+  <version>1.9</version>
   <name>${project.artifactId}</name>
   <description>Command line interface for scala programs</description>
   <inceptionYear>2010</inceptionYear>
@@ -19,8 +19,8 @@
     <maven.compiler.source>1.6</maven.compiler.source>
     <maven.compiler.target>1.6</maven.compiler.target>
     <encoding>UTF-8</encoding>
-    <scala.version>2.10.4</scala.version>
-    <publish.scala.version>2.10</publish.scala.version>
+        <scala.version>2.11.8</scala.version>
+    <publish.scala.version>2.11</publish.scala.version>
 
     <!-- github server corresponds to entry in ~/.m2/settings.xml -->
     <github.global.server>github</github.global.server>
@@ -102,7 +102,12 @@
       <dependency>
           <groupId>com.github.dunnololda</groupId>
           <artifactId>mysimplelogger_${publish.scala.version}</artifactId>
-          <version>1.4</version>
+          <version>1.5</version>
+      </dependency>
+      <dependency>
+          <groupId>org.scala-lang.modules</groupId>
+          <artifactId>scala-parser-combinators_${publish.scala.version}</artifactId>
+          <version>1.0.4</version>
       </dependency>
 
     <!-- Test -->
